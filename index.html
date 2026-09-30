@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#05060a" />
+  <meta name="description" content="The Avengers Cafe — Sodepur's Superhero Hangout. Cinematic Marvel-themed café experience." />
+  <title>The Avengers Cafe — Sodepur's Superhero Hangout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+</head>
+<body class="intro-active">
+
+  <!-- ========== CINEMATIC INTRO ========== -->
+  <div id="intro" class="intro" aria-hidden="true">
+    <canvas id="intro-canvas"></canvas>
+    <div class="intro-flashes" id="introFlashes"></div>
+    <div class="intro-logo" id="introLogo">
+      <div class="logo-frame">
+        <div class="logo-strip">A</div>
+        <div class="logo-main">
+          <span class="logo-avengers">AVENGERS</span>
+          <span class="logo-cafe">CAFE</span>
+        </div>
+      </div>
+      <p class="logo-sub">SODEPUR • WEST BENGAL</p>
+    </div>
+    <button class="skip-intro" id="skipIntro" type="button">SKIP INTRO →</button>
+  </div>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Avengers Cafe home">
+        <span class="nav-logo-mark">A</span>
+        <span class="nav-logo-text">AVENGERS CAFE</span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a href="#hero" class="nav-link active">HOME</a>
+        <a href="#heroes" class="nav-link">HEROES</a>
+        <a href="#menu" class="nav-link">MENU</a>
+        <a href="#inside-hq" class="nav-link">EXPERIENCE</a>
+        <a href="#gallery" class="nav-link">GALLERY</a>
+        <a href="#location" class="nav-link">LOCATION</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn btn-primary btn-sm" id="navBookBtn" type="button">BOOK NOW</button>
+        <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+          <span class="mt-bar"></span>
+          <span class="mt-bar"></span>
+          <span class="mt-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ========== MAIN ========== -->
+  <main id="mainWrap">
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-vignette"></div>
+      <div class="hero-grain"></div>
+      <div class="hud hud-tl"></div>
+      <div class="hud hud-tr"></div>
+      <div class="hud hud-bl"></div>
+      <div class="hud hud-br"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge" data-parallax="0.005">
+          <span class="badge-line"></span>
+          <span class="badge-text">SODEPUR'S SUPERHERO HANGOUT</span>
+          <span class="badge-line"></span>
+        </div>
+        <h1 class="hero-title" data-parallax="0.02">
+          <span class="hero-title-line">AVENGERS</span>
+          <span class="hero-title-line hero-title-cafe">CAFE</span>
+        </h1>
+        <p class="hero-tagline" data-parallax="0.01">
+          POWER UP. GEAR UP. <span class="accent-text">ASSEMBLE.</span>
+        </p>
+        <div class="hero-buttons">
+          <a href="#menu" class="btn btn-primary">
+            <i data-lucide="utensils"></i><span>EXPLORE THE MENU</span>
+          </a>
+          <button class="btn btn-outline" id="heroBookBtn" type="button">
+            <i data-lucide="calendar"></i><span>BOOK YOUR TABLE</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="stat-value">4.6★</span><span class="stat-label">1,000+ Reviews</span></div>
+        <div class="hero-stat"><span class="stat-value">₹200–400</span><span class="stat-label">Per Person</span></div>
+        <div class="hero-stat"><span class="stat-value">OPEN</span><span class="stat-label">Till 10:30 PM</span></div>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>SCROLL TO ENTER</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- HEROES -->
+    <section id="heroes" class="heroes section">
+      <div class="heroes-bg" id="heroesBg"></div>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">01 // THE TEAM</span>
+          <h2 class="section-title">CHOOSE YOUR HERO</h2>
+          <p class="section-subtitle">Every legend has a signature. Pick yours and the HQ transforms.</p>
+        </div>
+
+        <div class="hero-stage">
+          <div class="hero-stage-bg" id="heroStageBg"></div>
+          <div class="hero-display">
+            <div class="hero-display-icon" id="heroDisplayIcon"></div>
+            <div class="hero-display-ring"></div>
+          </div>
+          <div class="hero-info">
+            <div class="hero-info-tag" id="heroInfoTag">SELECT A HERO</div>
+            <h3 class="hero-info-name" id="heroInfoName">THE TEAM IS WAITING</h3>
+            <p class="hero-info-desc" id="heroInfoDesc">Tap any hero below to reveal their story, powers and signature dish.</p>
+            <div class="hero-info-stats" id="heroInfoStats"></div>
+          </div>
+        </div>
+
+        <div class="hero-selector" id="heroSelector"></div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="menu section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">02 // THE FUEL</span>
+          <h2 class="section-title">THE AVENGERS MENU</h2>
+          <p class="section-subtitle">POWER UP.</p>
+        </div>
+        <div class="menu-categories" id="menuCategories"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+      </div>
+    </section>
+
+    <!-- SHOWCASE -->
+    <section id="showcase" class="showcase section">
+      <div class="showcase-bg" id="showcaseBg"></div>
+      <div class="showcase-overlay"></div>
+      <div class="showcase-content">
+        <span class="section-eyebrow">03 // SIGNATURE</span>
+        <h2 class="showcase-title">POWER UP</h2>
+        <p class="showcase-desc">Fresh. Loaded. Legendary.</p>
+        <a href="#menu" class="btn btn-primary btn-large">
+          <i data-lucide="flame"></i><span>VIEW MENU</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- REACTOR -->
+    <section id="reactor" class="reactor section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">04 // ARC REACTOR</span>
+          <h2 class="section-title">POWER THE REACTOR</h2>
+          <p class="section-subtitle" id="reactorHint">Move your cursor. Click to release a pulse.</p>
+        </div>
+
+        <div class="reactor-container" id="reactorContainer" role="button" tabindex="0" aria-label="Power the arc reactor">
+          <div class="reactor-hud"><span>SYS.CORE</span><span>ONLINE</span></div>
+          <div class="reactor-ring ring-a"></div>
+          <div class="reactor-ring ring-b"></div>
+          <div class="reactor-ring ring-c"></div>
+          <div class="reactor-ring ring-d"></div>
+          <div class="reactor-ticks" id="reactorTicks"></div>
+          <div class="reactor-core" id="reactorCore"><div class="reactor-core-inner"></div></div>
+          <div class="reactor-scan"></div>
+        </div>
+
+        <div class="reactor-status">
+          <div class="reactor-bar"><div class="reactor-bar-fill" id="reactorBarFill"></div></div>
+          <p>POWER LEVEL: <span id="powerLevel">0%</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSIDE HQ -->
+    <section id="inside-hq" class="inside-hq section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">05 // THE HQ</span>
+          <h2 class="section-title">INSIDE THE HQ</h2>
+          <p class="section-subtitle">Four zones. One legendary experience.</p>
+        </div>
+        <div class="hq-scroll" id="hqScroll"></div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">06 // FILM REEL</span>
+          <h2 class="section-title">CINEMATIC GALLERY</h2>
+          <p class="section-subtitle">Every frame, a story from the HQ.</p>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section id="location" class="location section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">07 // FIND US</span>
+          <h2 class="section-title">YOUR HQ AWAITS</h2>
+        </div>
+        <div class="location-grid">
+          <div class="location-info">
+            <h3 class="location-name">AVENGERS CAFE</h3>
+            <p class="location-region">SODEPUR, WEST BENGAL</p>
+            <ul class="location-details">
+              <li><i data-lucide="map-pin"></i><span>5, Purbayan, Kathgola, Sodepur, Kolkata, Panihati, West Bengal 700110</span></li>
+              <li><i data-lucide="clock"></i><span>Open Daily · Closes 10:30 PM</span></li>
+              <li><i data-lucide="phone"></i><span>070030 61778</span></li>
+              <li><i data-lucide="instagram"></i><span>@theavengerscafe</span></li>
+            </ul>
+            <div class="location-buttons">
+              <a href="https://maps.google.com/?q=The+Avengers+Cafe+Sodepur" target="_blank" rel="noopener" class="btn btn-primary">
+                <i data-lucide="navigation"></i><span>GET DIRECTIONS</span>
+              </a>
+              <button class="btn btn-outline" id="locationBookBtn" type="button">
+                <i data-lucide="calendar"></i><span>BOOK A TABLE</span>
+              </button>
+            </div>
+          </div>
+          <div class="location-map">
+            <iframe src="https://www.google.com/maps?q=The+Avengers+Cafe+Sodepur&output=embed" title="Avengers Cafe location" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING CTA -->
+    <section id="booking-cta" class="booking-cta section">
+      <div class="booking-cta-bg"></div>
+      <div class="container">
+        <span class="section-eyebrow">08 // MISSION LAUNCH</span>
+        <h2 class="section-title">READY TO ASSEMBLE?</h2>
+        <p class="section-subtitle">Good food. Great company. One unforgettable experience.</p>
+        <button class="btn btn-primary btn-large btn-glow" id="bookingCtaBtn" type="button">
+          <i data-lucide="rocket"></i><span>BOOK YOUR TABLE</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- FINAL -->
+    <section id="final" class="final section">
+      <canvas id="finalCanvas" aria-hidden="true"></canvas>
+      <div class="final-content">
+        <h2 class="final-title">THE TEAM IS WAITING.</h2>
+        <p class="final-sub">ARE YOU READY TO ASSEMBLE?</p>
+        <button class="btn btn-primary btn-large btn-glow" id="enterHqBtn" type="button">
+          <i data-lucide="arrow-up"></i><span>ENTER THE HQ</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-mark">A</div>
+          <div>
+            <h3>AVENGERS CAFE</h3>
+            <p>SODEPUR • WEST BENGAL</p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="#hero">HOME</a>
+          <a href="#heroes">HEROES</a>
+          <a href="#menu">MENU</a>
+          <a href="#inside-hq">EXPERIENCE</a>
+          <a href="#gallery">GALLERY</a>
+          <a href="#location">LOCATION</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+          <a href="https://maps.google.com/?q=The+Avengers+Cafe+Sodepur" target="_blank" rel="noopener" aria-label="Maps"><i data-lucide="map-pin"></i></a>
+          <a href="tel:07003061778" aria-label="Call"><i data-lucide="phone"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 The Avengers Cafe · Sodepur · All rights reserved.</p>
+        <p class="footer-note">A superhero-themed café experience. Fan-made concept.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+    <div class="modal">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="modal-head">
+        <span class="modal-tag">MISSION BRIEF</span>
+        <h2 id="bookingTitle">BOOK YOUR TABLE</h2>
+        <p>Reserve your spot at the HQ.</p>
+      </div>
+      <form id="bookingForm" novalidate>
+        <div class="form-group">
+          <label for="name">FULL NAME</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label for="phone">PHONE NUMBER</label>
+          <input type="tel" id="phone" name="phone" placeholder="+91 ..." required autocomplete="tel" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date">DATE</label>
+            <input type="date" id="date" name="date" required />
+          </div>
+          <div class="form-group">
+            <label for="time">TIME</label>
+            <input type="time" id="time" name="time" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="guests">GUESTS</label>
+          <select id="guests" name="guests" required>
+            <option value="1">1 Person</option>
+            <option value="2" selected>2 People</option>
+            <option value="3">3 People</option>
+            <option value="4">4 People</option>
+            <option value="5">5 People</option>
+            <option value="6+">6+ People</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">
+          <i data-lucide="check"></i><span>CONFIRM BOOKING</span>
+        </button>
+      </form>
+      <p class="modal-note">Frontend demo — data stored locally. Backend integration coming soon.</p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
